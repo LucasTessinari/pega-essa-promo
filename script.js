@@ -64,3 +64,35 @@ document.addEventListener("DOMContentLoaded", function () {
         showMessage(); // Exibe a mensagem imediatamente ao carregar
         setInterval(showMessage, 12000); // Faz o ciclo da mensagem a cada 10 segundos
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const whatsappIcon = document.getElementById("whatsapp-icon");
+        const whatsappMessage = document.getElementById("whatsapp-message");
+    
+        // Detecta se é mobile/tablet
+        const isMobile = window.innerWidth <= 768;
+    
+        if (!isMobile) {
+            // Bounce a cada 3 segundos em desktop
+            setInterval(() => {
+                whatsappIcon.classList.add("bounce");
+                setTimeout(() => {
+                    whatsappIcon.classList.remove("bounce");
+                }, 500);
+            }, 3000);
+        }
+        // Em mobile, o bounce é contínuo via CSS animation
+    
+        // Função para exibir a mensagem
+        function showMessage() {
+            whatsappMessage.classList.add("show");
+    
+            setTimeout(() => {
+                whatsappMessage.classList.remove("show");
+            }, 4000);
+        }
+    
+        // Inicia o loop da mensagem
+        showMessage();
+        setInterval(showMessage, 12000);
+    });

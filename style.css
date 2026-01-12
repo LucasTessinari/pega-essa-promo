@@ -111,13 +111,14 @@ body {
 }
 
 .header-btn i {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   margin-right: 12px;
 }
 
 .whatsapp-btn {
   background: #25D366;
   color: white;
+  animation: pulse 1.5s infinite ease-in-out;
 }
 
 .whatsapp-btn:hover {
@@ -585,105 +586,198 @@ body {
     50% { transform: translateY(-10px); }
 }
 
-/* RESPONSIVIDADE */
-@media (max-width: 1100px) {
-  .header-content {
-    gap: 40px;
+/* Responsividade para 1195px - QR Code sobe */
+@media (max-width: 1195px) {
+  .hero-top {
+    padding: 40px 0 80px;
   }
 
-  .header-title {
-    font-size: 2.2rem;
-  }
-
-  .header-btn {
-    min-width: 220px;
-    padding: 16px 25px;
-  }
-}
-
-@media (max-width: 992px) {
   .header-content {
     grid-template-columns: 1fr;
+    gap: 30px;
     text-align: center;
-    gap: 50px;
   }
 
   .header-left {
+    min-width: auto;
     padding-right: 0;
+    justify-items: center;
+  }
+
+  /* QR Code sobe e centraliza */
+  .header-right {
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    order: -1; /* Move QR para cima */
+  }
+
+  .qr-image {
+    width: 300px;
+    height: auto;
+    display: none;
+  }
+
+  .header-btn {
+    padding: 25px 40px;
+    font-size: 1.5rem;
+  }
+
+  .header-buttons {
+    justify-content: center;
+  }
+
+  .header-logo {
+    width: 280px;
   }
 
   .header-title {
     font-size: 2rem;
   }
-
-  .header-buttons {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .qr-container {
-    margin: 0 auto;
-  }
 }
 
-@media (max-width: 768px) {
-  .hero-top {
-    padding: 40px 0 100px;
+/* Tablets */
+@media (max-width: 992px) {
+  .header-logo {
+    width: 250px;
   }
 
   .header-title {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
+  }
+
+  .qr-image {
+    width: 280px;
+  }
+
+  .benefits-grid-detailed,
+  .stores-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .chat-section .chat__content {
+    flex-direction: column;
+    gap: 30px;
+    padding: 60px 30px;
+  }
+
+  .chamada {
+    margin-right: 0;
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+}
+
+/* Mobile e Tablets - Botões WhatsApp SUPER VISÍVEIS */
+@media (max-width: 768px) {
+  .header-btn {
+    width: 100%;
+    padding: 22px 30px;
+    font-size: 1.5rem;
+    animation: pulse 2s ease-in-out infinite;
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+  }
+
+  .whatsapp-btn {
+    background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
+    font-weight: 900;
+    letter-spacing: 0.5px;
+  }
+
+  .whatsapp-btn:hover {
+    animation: none;
+  }
+
+  .header-title {
+    font-size: 1.7rem;
+    line-height: 1.3;
+  }
+
+  .header-logo {
+    width: 220px;
+    margin-bottom: 20px;
+  }
+
+  .qr-image {
+    width: 260px;
+  }
+
+  /* Ícone WhatsApp flutuante MAIOR e com bounce forte */
+  #whatsapp-icon {
+    width: 70px;
+    height: 70px;
+    animation: bounce-strong 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 8px 15px rgba(37, 211, 102, 0.6));
+  }
+
+  #whatsapp-message {
+    font-size: 13px;
+    padding: 8px 16px;
+    right: 90px;
   }
 
   .section-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .benefits-grid-detailed,
   .stores-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .header-btn {
-    min-width: 100%;
+  .chat-section .chat__content {
+    padding: 50px 20px;
   }
 
-  .qr-container {
-    width: 280px;
-    height: 280px;
-  }
-
-  .curve-divider svg {
-    height: 80px;
-  }
-
-  /* OFERTADOS MOBILE */
-  .store-item {
-    width: 140px;
-    height: 140px;
-  }
-
-  .store-name {
-    font-size: 0.8rem;
-    padding: 8px 6px;
+  .chamada {
+    font-size: 1.2rem;
+    line-height: 1.4;
   }
 }
 
+/* Mobile pequeno */
 @media (max-width: 480px) {
   .header-logo {
-    width: 150px;
+    width: 180px;
   }
 
   .header-title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .header-description {
     font-size: 1rem;
   }
 
-  .heading {
-    font-size: 2.5rem;
+  .qr-image {
+    width: 220px;
+  }
+
+  .header-btn {
+    padding: 20px 25px;
+    font-size: 1.5rem;
+  }
+
+  .header-btn i {
+    font-size: 1.5rem;
+  }
+
+  /* Ícone WhatsApp ainda MAIOR em telas pequenas */
+  #whatsapp-icon {
+    width: 65px;
+    height: 65px;
+  }
+
+  #whatsapp-message {
+    font-size: 12px;
+    padding: 6px 12px;
+    right: 80px;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
   }
 
   .benefit-card,
@@ -691,9 +785,36 @@ body {
     padding: 25px 20px;
   }
 
-  /* OFERTADOS EXTRA MOBILE */
   .store-item {
-    width: 130px;
-    height: 130px;
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* Animação Pulse para botões em mobile */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(37, 211, 102, 0.7);
+  }
+}
+
+/* Bounce forte para ícone WhatsApp em mobile */
+@keyframes bounce-strong {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    transform: translateY(-15px) scale(1.1);
+  }
+  50% {
+    transform: translateY(0) scale(1);
+  }
+  75% {
+    transform: translateY(-8px) scale(1.05);
   }
 }
